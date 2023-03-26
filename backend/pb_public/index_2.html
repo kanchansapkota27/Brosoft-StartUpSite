@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <title>Pocketbase Home</title>
+</head>
+<body>
+    <div class="w-full h-screen bg-blue-500 flex justify-center items-center">
+        <div class="flex flex-col w-[20%] rounded space-y-2 p-2 bg-white shadow">
+            <h1 class="w-full text-lg font-semibold  text-center tracking-wide">Pocket<span class="font-bold">Base</span></h1>
+            <hr/>
+            <div class="p-2 w-full h-full gap-2 flex flex-col justify-center items-center">
+                <label class="w-full font-semibold text-gray-700"> Go to admin interface</label>
+                <a
+                href="http://127.0.0.1:8090/_/"
+                target="_blank" 
+                class="px-4 w-full text-center select-none cursor-pointer py-2 bg-black text-white rounded border-2 border-black hover:shadow-md hover:bg-transparent hover:text-black">
+                Admin
+            </a>
+        </div>
+        <div class="p-2 w-full h-full gap-2 flex flex-col justify-center items-center">
+            <label class="w-full font-semibold text-gray-700">Go to api endpoint</label>
+            <a
+            href="http://127.0.0.1:8090/api/" 
+            class="px-4 w-full text-center py-2 select-none cursor-pointer bg-black text-white rounded border-2 border-black hover:shadow-md hover:bg-transparent hover:text-black">
+            API
+        </a>
+        </div>
+        </div>
+    </div>
+    
+</body>
+</html>
