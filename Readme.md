@@ -38,3 +38,5 @@ pocketbase serve --http 0.0.0.0:8090
 runclient.bat
 ```
 
+*Note: The docker is for built app deployed by pocketbase using pb_public directory*
+
