@@ -40,3 +40,17 @@ runclient.bat
 
 *Note: The docker is for built app deployed by pocketbase using pb_public directory*
 
+## Screenshots
+
+### Home
+![Home](screenshots/home.png)
+### About
+![About](screenshots/about-us.png)
+### Portfolio
+![Portfolio](screenshots/portfolio.png)
+### Carrers
+![Carrers-Minimal](screenshots/carrers-minimal.png)
+![Carrers-Extend](screenshots/carrers-extend.png)
+![Carrers-Apply](screenshots/carrers-apply.png)
+### Contact
+![Contact](screenshots/contact.png)
