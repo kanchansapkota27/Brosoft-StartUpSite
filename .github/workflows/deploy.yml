@@ -1,54 +1,34 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
-
-defaults:
-    run:
-        working-directory: ./frontend
-  
+      - main  # Change this to your desired branch
 
 jobs:
-  build:
-    name: Build
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14  # Change this to your desired Node.js version
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm ci  # Change this to the command you use to install dependencies
+        working-directory: frontend  # Change this to the directory containing your frontend code
 
-      - name: Build project
-        run: npm run build
-
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
-        with:
-          name: production-files
-          path: ./dist
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: production-files
-          path: ./dist
+      - name: Build
+        run: npm run build  # Change this to the command you use to build your frontend
+        working-directory: frontend  # Change this to the directory containing your frontend code
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+            working-directory: frontend  # Change this to the directory containing your frontend code
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./dist  # Change this to the build directory of your frontend
