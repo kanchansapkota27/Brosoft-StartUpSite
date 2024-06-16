@@ -1,7 +1,7 @@
 
 import pocketbaseEs from "pocketbase";
 
-const API_URL='http://127.0.0.1:8090'
+const API_URL='http://0.0.0.0:8090'
 
 const  client=new pocketbaseEs(API_URL);
 

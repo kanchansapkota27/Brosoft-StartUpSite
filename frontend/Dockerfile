@@ -13,8 +13,13 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+
+# Build the files for preview
+RUN npm run build
+
 # Expose the port that Vite uses
 EXPOSE 8080
+
 
 # Start the application
 CMD ["npm", "run", "preview"]
