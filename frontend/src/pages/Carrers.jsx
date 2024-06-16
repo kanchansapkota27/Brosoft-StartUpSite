@@ -58,7 +58,7 @@ const Carrers = () => {
       
       className="container relative flex px-10 md:px-20 pt-10 flex-col">
         <h2 className='text-3xl font-semibold'>
-        {data? "We are actively hiring for the following positions.":"No active positions available." }
+        {(data|| JOBS )? "We are actively hiring for the following positions.":"No active positions available." }
         </h2>
         <h4>
           {data?'Let us know if your are available.':''}
@@ -82,7 +82,7 @@ const Carrers = () => {
       <div className='flex flex-col w-full space-x-2 py-10 px-10 md:px-20'>
         <div className='col-span-2 flex flex-col'>
         {
-          data?
+          data ?
           data.map((item,index)=>
           {
                 return <JobListCard key={item.title} data={item}/>

@@ -1,16 +1,39 @@
-version: "3.7"
+version: '3.8'
+
 services:
-  pocketbase:
+  brosoft_pocketbase:
     image: ghcr.io/muchobien/pocketbase:0.10.4
-    container_name: pocketbase
-    restart: unless-stopped
-    ports:
-      - "8090:8090"
+    container_name: bsoft_pocketbase
+    user: 0:0
     volumes:
-      - /backend/pb_data:/pb_data
-      - /backend/pub_public:/pb_public #optional
+      - ./backend/pb_public:/pb_data
+      # - ./backend/pocketbase.exe:/pocketbase/pocketbase.exe
     healthcheck: #optional (recommended) since v0.10.0
       test: wget --no-verbose --tries=1 --spider http://localhost:8090/api/health || exit 1
       interval: 5s
       timeout: 5s
       retries: 5
+
+    ports:
+      - "8090:8090"
+    restart: unless-stopped
+
+  brosoft_frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bsoft_react
+    image: brosoft_react:latest
+    ports:
+      - "3000:8080"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - brosoft_pocketbase
+    restart: unless-stopped
+
+volumes:
+  pb_data:
+
