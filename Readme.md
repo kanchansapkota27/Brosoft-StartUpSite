@@ -7,6 +7,8 @@ StartUp React Site
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Pocketbase](https://pocketbase.io/images/logo.svg)
 
+## Preview
+[Visit Link](https://brosoft.sapkotakanchan.com.np)
 
 ## Running Client 
 
